@@ -4,34 +4,25 @@ namespace Aufgabe1_Binarysearch
 {
     class Binarysearch
     {
-        public void bsearcher(int[] array, int wanted)
+        public void bsearcher(int[] array, int wanted, int low , int high)
         {
-            int i = array.Length/2;
-            bool notfound=true;
             long milliseconds = DateTimeOffset.Now.ToUnixTimeMilliseconds();
-            int n = 1;
-            while(notfound)
+            while(low <= high)
             {
-                if(array[i]==wanted)
+                int mid = (low + high)/2;
+                if(array[mid]<wanted)
+                {
+                    low = mid +1;
+                }
+                else if(array[mid]>wanted)
+                {
+                   high = mid - 1;
+                }
+                else if (array[mid]==wanted)
                 {
                     Console.WriteLine(DateTimeOffset.Now.ToUnixTimeMilliseconds()-milliseconds);
-                    notfound=false;
+                    break;
                 }
-                else if(array[i]>wanted)
-                {
-                    i=i/2;
-                Console.WriteLine(i+"down");
-                Console.WriteLine(array[i]+" "+wanted);
-                }
-                else if (array[i]<wanted)
-                {
-                    int devid= 2*n;
-                    i=i+(i/devid);
-                Console.WriteLine(i+"up");
-                Console.WriteLine(array[i]+" "+wanted);
-                }
-
-                System.Threading.Thread.Sleep(200);
             }
         }
         public void lsearcher(int[] array, int wanted)
@@ -42,6 +33,7 @@ namespace Aufgabe1_Binarysearch
                 if (array[i]==wanted)
                 {
                     Console.WriteLine(DateTimeOffset.Now.ToUnixTimeMilliseconds()-milliseconds);
+                    break;
                 }
             }
         }
@@ -68,7 +60,7 @@ namespace Aufgabe1_Binarysearch
             int wanted = sarray[rand.Next(100)];
             Array.Sort(sarray);
             search.lsearcher(sarray,wanted);
-            search.bsearcher(sarray,wanted);
+            search.bsearcher(sarray,wanted,0,sarray.Length-1);
         }
     }
 }
