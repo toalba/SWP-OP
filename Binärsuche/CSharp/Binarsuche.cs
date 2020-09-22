@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Aufgabe1_Binarysearch
+namespace CSharp
 {
     class Binarysearch
     {
@@ -25,6 +25,30 @@ namespace Aufgabe1_Binarysearch
                 }
             }
         }
+        //recursive
+        public int brsearcher(int[] array, int wanted, int low , int high)
+        {
+            long milliseconds = DateTimeOffset.Now.ToUnixTimeMilliseconds();
+                int mid = (low + high)/2;
+                if(array[mid]<wanted)
+                {
+                    return brsearcher(array,wanted,low+1,high);
+                }
+                else if(array[mid]>wanted)
+                {
+                   return brsearcher(array,wanted,low,high-1);
+                }
+                else if (array[mid]==wanted)
+                {
+                    Console.WriteLine(DateTimeOffset.Now.ToUnixTimeMilliseconds()-milliseconds);
+                    Console.WriteLine("Stelle:"+mid+" Gesucht:"+wanted);
+                    return wanted;
+                }
+                else
+                {
+                    return 0;
+                }
+        }
         public void lsearcher(int[] array, int wanted)
         {
             long milliseconds = DateTimeOffset.Now.ToUnixTimeMilliseconds();
@@ -39,7 +63,7 @@ namespace Aufgabe1_Binarysearch
         }
         public int[] fillup()
         {
-            int lenght = 100;
+            int lenght = 1000;
             var rand = new Random();
             int[] array = new int[lenght];
             for (int i = 0; i < array.Length; i++)
@@ -61,6 +85,7 @@ namespace Aufgabe1_Binarysearch
             Array.Sort(sarray);
             search.lsearcher(sarray,wanted);
             search.bsearcher(sarray,wanted,0,sarray.Length-1);
+            search.brsearcher(sarray,wanted,0,sarray.Length-1);
         }
     }
 }

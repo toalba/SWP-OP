@@ -19,6 +19,29 @@ public class Binarsuche {
             }
         }
     }
+    public int brsearcher(int[] array, int wanted, int low , int high)
+        {
+            long milliseconds = System.currentTimeMillis();
+            int mid = (low + high)/2;
+            if(array[mid]<wanted)
+            {
+                return brsearcher(array,wanted,low+1,high);
+            }
+            else if(array[mid]>wanted)
+            {
+                return brsearcher(array,wanted,low,high-1);
+            }
+            else if (array[mid]==wanted)
+            {
+                System.out.println(System.currentTimeMillis()-milliseconds);
+                System.out.println("Stelle:"+mid+" Gesucht:"+wanted);
+                return wanted;
+            }
+            else
+            {
+                return 0;
+            }
+        }
 
     public int[] fillup() {
         int lenght = 100;
@@ -35,7 +58,8 @@ public class Binarsuche {
         Random rand = new Random();
         int[] array = binearsuche.fillup();
         int wanted = array[rand.nextInt(100)];
-        binearsuche.suche(array, wanted, 0, array.length-1);   
+        binearsuche.suche(array, wanted, 0, array.length-1);
+        binearsuche.brsearcher(array, wanted, 0, array.length-1); 
     }
     
 }
