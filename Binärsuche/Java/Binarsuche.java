@@ -1,11 +1,13 @@
 package Binärsuche.Java;
 
+import java.lang.reflect.Array;
+import java.util.Arrays;
 import java.util.Random;
 
 public class Binarsuche {
 
     public void suche(int[] array, int wanted, int low, int high) {
-        long start = System.currentTimeMillis();
+        long start = System.nanoTime();
         while (low <= high) {
             int mid = (low + high) / 2;
             if (array[mid] < wanted) {
@@ -13,7 +15,7 @@ public class Binarsuche {
             } else if (array[mid] > wanted) {
                 high = mid - 1;
             } else if (array[mid] == wanted) {
-                System.out.println(System.currentTimeMillis() - start);
+                System.out.println(System.nanoTime() - start);
                 System.out.println("Stelle:"+mid+" Gesucht:"+wanted);
                 break;
             }
@@ -39,7 +41,7 @@ public class Binarsuche {
             }
             else
             {
-                return 0;
+                return -1;
             }
         }
 
@@ -58,6 +60,7 @@ public class Binarsuche {
         Random rand = new Random();
         int[] array = binearsuche.fillup();
         int wanted = array[rand.nextInt(100)];
+        Arrays.sort(array);
         binearsuche.suche(array, wanted, 0, array.length-1);
        // binearsuche.brsearcher(array, wanted, 0, array.length-1); 
     }

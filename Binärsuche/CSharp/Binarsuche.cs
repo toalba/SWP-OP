@@ -10,6 +10,7 @@ namespace CSharp
             while(low <= high)
             {
                 int mid = (low + high)/2;
+                Console.WriteLine("Mid:"+mid+" Low:"+low+" High:"+high);
                 if(array[mid]<wanted)
                 {
                     low = mid +1;
@@ -83,9 +84,9 @@ namespace CSharp
             int[] sarray = search.fillup();
             int wanted = sarray[rand.Next(100)];
             Array.Sort(sarray);
-            search.lsearcher(sarray,wanted);
+            //search.lsearcher(sarray,wanted);
             search.bsearcher(sarray,wanted,0,sarray.Length-1);
-            search.brsearcher(sarray,wanted,0,sarray.Length-1);
+            //search.brsearcher(sarray,wanted,0,sarray.Length-1);
         }
     }
 }
