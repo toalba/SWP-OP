@@ -6,6 +6,13 @@
    "configurations": [
     {
         "type": "java",
+        "name": "CodeLens (Launch) - Binarsuche",
+        "request": "launch",
+        "mainClass": "Binärsuche.Java.Binarsuche",
+        "projectName": "SWP-OP_d7fb3ccb"
+    },
+    {
+        "type": "java",
         "name": "CodeLens (Launch) - binearsuche",
         "request": "launch",
         "mainClass": "Binärsuche.Java.binearsuche",

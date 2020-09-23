@@ -59,7 +59,7 @@ public class Binarsuche {
         int[] array = binearsuche.fillup();
         int wanted = array[rand.nextInt(100)];
         binearsuche.suche(array, wanted, 0, array.length-1);
-        binearsuche.brsearcher(array, wanted, 0, array.length-1); 
+       // binearsuche.brsearcher(array, wanted, 0, array.length-1); 
     }
     
 }
