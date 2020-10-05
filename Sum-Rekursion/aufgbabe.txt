@@ -1,0 +1,3 @@
+methode multiplikation zweier werte mittls addition
+
+einmal iterativ und einmal rekusive
