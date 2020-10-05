@@ -4,6 +4,7 @@ import java.lang.reflect.Array;
 import java.util.Arrays;
 import java.util.Random;
 
+
 public class Binarsuche {
 
     public void suche(int[] array, int wanted, int low, int high) {
@@ -62,6 +63,7 @@ public class Binarsuche {
         int wanted = array[rand.nextInt(100)];
         Arrays.sort(array);
         binearsuche.suche(array, wanted, 0, array.length-1);
+
        // binearsuche.brsearcher(array, wanted, 0, array.length-1); 
     }
     

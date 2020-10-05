@@ -4,13 +4,12 @@ namespace CSharp
 {
     class Binarysearch
     {
-        public void bsearcher(int[] array, int wanted, int low , int high)
+        public long bsearcher(int[] array, int wanted, int low , int high)
         {
             long milliseconds = DateTimeOffset.Now.ToUnixTimeMilliseconds();
             while(low <= high)
             {
                 int mid = (low + high)/2;
-                Console.WriteLine("Mid:"+mid+" Low:"+low+" High:"+high);
                 if(array[mid]<wanted)
                 {
                     low = mid +1;
@@ -21,10 +20,10 @@ namespace CSharp
                 }
                 else if (array[mid]==wanted)
                 {
-                    Console.WriteLine(DateTimeOffset.Now.ToUnixTimeMilliseconds()-milliseconds);
-                    break;
+                   return(DateTimeOffset.Now.ToUnixTimeMilliseconds()-milliseconds);
                 }
             }
+            return 0;
         }
         //recursive
         public int brsearcher(int[] array, int wanted, int low , int high)
@@ -64,12 +63,12 @@ namespace CSharp
         }
         public int[] fillup()
         {
-            int lenght = 1000;
+            int lenght = 10000;
             var rand = new Random();
             int[] array = new int[lenght];
             for (int i = 0; i < array.Length; i++)
             {
-                array[i]= rand.Next(100);
+                array[i]= rand.Next(1000);
             }
             
 
@@ -80,13 +79,24 @@ namespace CSharp
         static void Main(string[] args)
         {
             Binarysearch search = new Binarysearch();
+            Console.WriteLine(search.benchmark());
+        }
+        public long benchmark()
+        {
+            int benchmarklenght=10000;
+            long time = 0;
+            for (int i = 0; i < benchmarklenght; i++)
+            {
             var rand = new Random();
-            int[] sarray = search.fillup();
+            int[] sarray = fillup();
             int wanted = sarray[rand.Next(100)];
             Array.Sort(sarray);
-            //search.lsearcher(sarray,wanted);
-            search.bsearcher(sarray,wanted,0,sarray.Length-1);
-            //search.brsearcher(sarray,wanted,0,sarray.Length-1);
+            time = time + bsearcher(sarray,wanted,0,sarray.Length-1);
+            Console.WriteLine(time);
+            }
+            time= time/benchmarklenght;
+            return time;
         }
+
     }
 }
