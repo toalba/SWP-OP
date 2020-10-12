@@ -1,3 +1,4 @@
+// used node js
 function berechnersumrek(wert) {
     if (wert>0) {
         return wert +=berechnersumrek(wert-1)
