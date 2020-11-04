@@ -6,6 +6,13 @@
    "configurations": [
     {
         "type": "java",
+        "name": "CodeLens (Launch) - Endrek",
+        "request": "launch",
+        "mainClass": "Endrekursion.Endrek",
+        "projectName": "SWP-OP_5476563d"
+    },
+    {
+        "type": "java",
         "name": "CodeLens (Launch) - Binarsuche",
         "request": "launch",
         "mainClass": "Binärsuche.Java.Binarsuche",
