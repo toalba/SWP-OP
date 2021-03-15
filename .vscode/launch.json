@@ -6,6 +6,27 @@
    "configurations": [
     {
         "type": "java",
+        "name": "CodeLens (Launch) - Bubblesort",
+        "request": "launch",
+        "mainClass": "Bubblesort.Java.Bubblesort",
+        "projectName": "SWP-OP_d7fb3ccb"
+    },
+    {
+        "type": "java",
+        "name": "CodeLens (Launch) - Endrek",
+        "request": "launch",
+        "mainClass": "Endrekursion.Endrek",
+        "projectName": "SWP-OP_d7fb3ccb"
+    },
+    {
+        "type": "java",
+        "name": "CodeLens (Launch) - Selectionsort",
+        "request": "launch",
+        "mainClass": "Selctionsort.Java.Selectionsort",
+        "projectName": "SWP-OP_d7fb3ccb"
+    },
+    {
+        "type": "java",
         "name": "Launch Selectionsort",
         "request": "launch",
         "mainClass": "Selctionsort.Java.Selectionsort",

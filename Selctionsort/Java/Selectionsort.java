@@ -4,10 +4,11 @@ import java.util.Random;
 
 public class Selectionsort {
     final int arrayanz=100;
-    final int elem=1000000;
+    final int elem=100;
     final int range=1000;
-    private int[] bubblesortarr;
-    private int[] selectionsortarr;
+    private int[] bubblesortarr = new int[arrayanz];
+    private int[] selectionsortarr = new int[arrayanz];
+    private int[] insertionsortarr = new int[arrayanz];
 
     public int myselectionsort(int[] sortieren) {
         int anz=0;
@@ -50,10 +51,10 @@ public class Selectionsort {
     public int calcAVG(int[] resarray)
     {  
         int calc=0;
-        for (int i : resarray) {
+        for (int i=0 ;i<resarray.length;i++) {
             calc=resarray[i]+calc;
         }
-        return calc;
+        return calc/resarray.length;
     }
     public int calcMED(int[] resarray)
     {
@@ -63,11 +64,31 @@ public class Selectionsort {
     public void loop()
     {
         for (int i = 0; i < arrayanz; i++) {
-            int[] arr =generaterandomarray();
-            selectionsortarr[i]=myselectionsort(arr);
-            bubblesortarr[i]=mybubblesort(arr);
+            int ianz = insertionsort(generaterandomarray());
+            int sanz=myselectionsort(generaterandomarray());
+            int banz= mybubblesort(generaterandomarray());
+            selectionsortarr[i]=sanz;
+            bubblesortarr[i]=banz;
+            insertionsortarr[i]=ianz;
         }
     }
+    int insertionsort(int arr[])
+    {
+        int n = arr.length;
+        int anz=0;
+        for (int i = 1; i < n; ++i) {
+            int key = arr[i];
+            int j = i - 1;
+            while (j >= 0 && arr[j] > key) {
+                arr[j + 1] = arr[j];
+                j = j - 1;
+                anz++;
+            }
+            arr[j + 1] = key;
+        }
+        return anz;
+    }
+
     public void Sysoutput(String type,int AVG,int MED)
     {
         System.out.println(type);
@@ -79,5 +100,6 @@ public class Selectionsort {
         ss.loop();   
         ss.Sysoutput("Selectionsort",ss.calcAVG(ss.selectionsortarr),ss.calcMED(ss.selectionsortarr));
         ss.Sysoutput("Bubblesort",ss.calcAVG(ss.bubblesortarr),ss.calcMED(ss.bubblesortarr));
+        ss.Sysoutput("Insertionsort", ss.calcAVG(ss.insertionsortarr), ss.calcMED(ss.insertionsortarr));
     }
 }   

@@ -2,5 +2,6 @@
     "files.associations": {
         "xutility": "cpp",
         "iostream": "cpp"
-    }
+    },
+    "python.pythonPath": "/usr/bin/python"
 }
